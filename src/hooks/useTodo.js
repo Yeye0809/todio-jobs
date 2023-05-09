@@ -1,25 +1,38 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import todoReducer from '../reducers/todoReducer';
 
 const initialState = [
-    {
-        id: new Date().getTime(),
-        title: 'Yeye',
-        desc: 'recolectar la piedra del poder',
-        date: new Date(),
-        isUpcoming: true,
-        isInProgress: false,
-        isDone: false
-    },
+    // {
+    //     id: new Date().getTime(),
+    //     title: 'Yeye',
+    //     desc: 'recolectar la piedra del poder',
+    //     date: new Date(),
+    //     isUpcoming: true,
+    //     isInProgress: false,
+    //     isDone: false
+    // },
    
 ]
+
+const init = () => {
+
+    const oldState = localStorage.getItem('todos');
+
+    return JSON.parse(oldState);
+
+}
 
 
 const useTodo = () => {
 
-    const [ todos, dispatch ] = useReducer(todoReducer, initialState );
+    const [ todos, dispatch ] = useReducer(todoReducer, initialState, init );
+
+    useEffect(()=>{
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
 
     const handleNewTodo = (todoValues)=>{
+
         const {desc, title} = todoValues;
 
         const newDate = new Date();

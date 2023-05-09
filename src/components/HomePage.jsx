@@ -1,12 +1,11 @@
 import { useContext, useState } from "react";
+import { TodoContext } from "../context/TodoContext";
 import DoneColumn from "./DoneColumn";
 import InProgressColumn from "./InProgressColumn";
 import UpcomingColumn from "./UpcomingColumn";
 import AddTodo from "./AddTodo";
 
 
-import '../styles.css';
-import { TodoContext } from "../context/TodoContext";
 
 
 
