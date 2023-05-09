@@ -75,13 +75,21 @@ const useTodo = () => {
         })
     }
 
+    const handleRemoveTodo = (id) => {
+        dispatch({
+            type: '[TODO] Remove Todo',
+            payload: id
+        })
+    }
+
 
     return {
         todos,
 
         handleNewTodo,
         handleChangeToProgress,
-        handleChangeToDone
+        handleChangeToDone,
+        handleRemoveTodo
 
     }
 }

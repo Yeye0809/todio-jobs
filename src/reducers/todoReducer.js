@@ -31,6 +31,9 @@ const todoReducer = (state, action) => {
 
                 return todo
             });
+
+        case '[TODO] Remove Todo':
+            return state.filter( todo => todo.id !== action.payload );
             
         default:
             return state

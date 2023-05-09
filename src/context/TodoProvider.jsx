@@ -5,13 +5,14 @@ import { TodoContext } from './TodoContext';
 
 const TodoProvider = ({children}) => {
 
-  const {todos, handleNewTodo, handleChangeToProgress, handleChangeToDone } = useTodo();  
+  const {todos, handleNewTodo, handleChangeToProgress, handleChangeToDone, handleRemoveTodo } = useTodo();  
 
   const value = {
     todos,
     handleNewTodo,
     handleChangeToProgress,
-    handleChangeToDone
+    handleChangeToDone,
+    handleRemoveTodo
   }
 
   return (
