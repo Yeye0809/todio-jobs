@@ -36,7 +36,11 @@ const AddTodo = () => {
     }
 
   return (
-    <form onSubmit={ onSubmit } autoComplete="off">
+    <form 
+        className="mb-3"
+        onSubmit={ onSubmit } 
+        autoComplete="off"
+    >
         <input 
             type="text"
             className="form-control"

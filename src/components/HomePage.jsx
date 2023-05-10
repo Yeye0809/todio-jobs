@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
-import { TodoContext } from "../context/TodoContext";
 import DoneColumn from "./DoneColumn";
 import InProgressColumn from "./InProgressColumn";
 import UpcomingColumn from "./UpcomingColumn";
 import AddTodo from "./AddTodo";
+import { TodoContext } from "../context/TodoContext";
+import filtersColumnsTodo from "../helpers/filtersColumnsTodo";
 
 
 
@@ -13,20 +14,18 @@ const HomePage = () => {
 
     const [ showForm, setShowForm ] = useState(false);
 
-    const {todos} = useContext(TodoContext);
+    const { todos } = useContext(TodoContext);
 
-    const todosUpcoming = todos.filter( todo => todo.isUpcoming === true );
-    const todosisInProgress = todos.filter( todo => todo.isInProgress === true );
-    const todosIsDone = todos.filter( todo => todo.isDone === true );
+    const { todosUpcoming, todosisInProgress, todosIsDone } = filtersColumnsTodo(todos)
 
   return (
     <>
-        <div className="container">
+        <div className="container mt-2">
             <div className="row">
-                <div className="col-4">
+                <div className="col-4 bg-light">
 
                     <div className="header-columns container d-flex align-items-center justify-content-between ">
-                        <span className="align-self-center">UpcomingColumn</span>
+                        <h3 className="text-center align-self-center ">UpcomingColumn</h3>
                         <button 
                             className="btn btn-outline-primary btn-sm"
                             onClick={()=>setShowForm(!showForm )}
@@ -48,9 +47,9 @@ const HomePage = () => {
                     }
                 </div>
 
-                <div className='col-4'>
+                <div className='col-4 bg-light'>
                     <div className="header-columns">
-                        <span className="align-self-center">InProgressColumn</span>
+                        <h3 className="text-center align-self-center">InProgressColumn</h3>
                     </div>
 
                     {
@@ -62,9 +61,9 @@ const HomePage = () => {
                      
                 </div>
 
-                <div className='col-4'>
+                <div className='col-4 bg-light'>
                     <div className="header-columns">
-                        <span className="align-self-center">DoneColumn</span>
+                        <h3 className="text-center align-self-center">DoneColumn</h3>
                     </div>
 
                     {

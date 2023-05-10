@@ -2,11 +2,10 @@
 const DeleteTodo = ({removeTodo, id}) => {
   return (
     <button 
-        className="btn btn-sm btn-danger"
+        className="btn-close" 
+        aria-label="Close"
         onClick={ ()=> removeTodo(id) }
-    >
-        X
-    </button>
+    > </button>
   )
 }
 
