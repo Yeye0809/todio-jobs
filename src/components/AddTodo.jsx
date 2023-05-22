@@ -26,6 +26,8 @@ const AddTodo = () => {
     const onSubmit = (event) =>{
         event.preventDefault();
 
+        if( title.length === 0 || desc.length === 0 ) return
+
         handleNewTodo(inputValue);
 
         setInputValue({
